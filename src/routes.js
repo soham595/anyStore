@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
-import App from './App';
+import {Route, Switch} from 'react-router-dom';
+import NavigationBar from './navigationBar';
+import SignUpPage from './signUpPage';
 
-class routes extends Component {
+class Routes extends Component {
     render() {
         return (
-            <BrowserRouter>
-                <div>
-                    <Route path='/' component={App}>
-                    </Route>
-                </div>
-            </BrowserRouter>
+            <main>
+                <Switch>
+                    <Route path='/signup' component={SignUpPage}/>
+                </Switch>
+            </main>
         );
     }
 }
 
-export default routes;
+export default Routes;

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './navigationBar.css';
+import {Link} from 'react-router-dom';
 
 class NavigationBar extends Component {
     render() {
@@ -18,7 +19,6 @@ class NavigationBar extends Component {
                                 <li className="dropdown nav-link">
                                     <a href="#" className="dropbtn nav-item dropdown-toggle" data-toggle="dropdown">
                                         Dealer Management
-                                        <b className="caret"></b>
                                     </a>
                                     <ul id="dealer-menu" className="dropdown-menu">
                                         <li><a href="#">Add Dealer Details</a></li>
@@ -36,11 +36,20 @@ class NavigationBar extends Component {
                                 </li>
                             </ul>
                             <form className="navbar-form form-inline my-2 my-lg-0">
-                            <div className="form-group">
-                                <input type="text" className="form-control mr-sm-2"  placeholder="Search"/>
-                                <button className="btn btn-success my-2 my-sm-0">Search</button>
-                            </div>
-                        </form>
+                                <div className="form-group">
+                                    <input type="text" className="form-control mr-sm-2" placeholder="Search"/>
+                                    <button className="btn btn-success my-2 my-sm-0">Search</button>
+                                </div>
+                            </form>
+                            <li className="dropdown nav-link">
+                                <a href="" className="dropbtn nav-item dropdown-toggle" data-toggle="dropdown">
+                                    Sign In
+                                </a>
+                                <ul id="" className="dropdown-menu">
+                                    <li><Link to="/">Login</Link></li>
+                                    <li><Link to="/signup">Register</Link></li>
+                                </ul>
+                            </li>
                         </div>
                     </div>
                 </nav>

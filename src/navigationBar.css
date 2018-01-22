@@ -10,6 +10,7 @@
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-menu {
+    margin-top: -1px;
     display: none;
     position: absolute;
     background-color: #3a3a3a;
@@ -54,4 +55,9 @@
 a:hover {
     text-decoration: none;
     color: white;
+}
+
+.container {
+    vertical-align: center;
+    text-align: center;
 }
