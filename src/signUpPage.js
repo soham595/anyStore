@@ -7,6 +7,7 @@ class SignUpPage extends React.Component {
         return (
             <div className="container">
                 <div className="row">
+
                     <div className="col-md-3"></div>
                     <div className="col-md-6">
                         <form className="form-space" method="post">
@@ -59,15 +60,17 @@ class SignUpPage extends React.Component {
                                            placeholder="Email"/>
                                 </div>
                             </div>
-                            <div className="row" id="buttoncustom">
+                            <div className="row">
                                 <div className="col-md-3"></div>
-                                <div className="col-md-2 padtop15">
+                                <div className="col-md-2">
                                     <button type="submit" className="btn btn-default">
-                                        <Link to="/signup">Cancel</Link>
+                                        <Link to="/">Cancel</Link>
                                     </button>
                                 </div>
-                                <div className="col-md-2 padtop15">
-                                    <button type="submit" className="btn btn-primary"/>
+                                <div className="col-md-2">
+                                    <button type="submit" className="btn btn-dark">
+                                        <Link to="/signup">Submit</Link>
+                                    </button>
                                 </div>
                             </div>
                         </form>
