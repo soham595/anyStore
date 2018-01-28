@@ -1,9 +1,30 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
+
     entry: [
+        'webpack-dev-server/client?http://localhost:3000',
+        'webpack/hot/only-dev-server',
         './src/index.js'
     ],
+
+    output: {
+        path: '/public',
+        filename: 'js/bundle.js',
+        publicPath: '/',
+    },
+
+    devtool: '#source-map',
+
+    devServer: {
+        inline: true,
+        contentBase: './public',
+        port: 3000,
+        historyApiFallback: true,
+        hot: true
+    },
+
     module: {
         loaders: [
             {
@@ -17,19 +38,13 @@ module.exports = {
             }
         ]
     },
+
     resolve: {
         extensions: ['*', '.js', '.jsx']
     },
-    output: {
-        path: '/public',
-        filename: 'js/bundle.js'
-    },
-    devServer: {
-        inline: true,
-        contentBase: './public',
-        port: 3000
-    },
+
     plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
     ]
 };
