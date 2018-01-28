@@ -1,15 +1,19 @@
-import path from 'path';
+var webpack = require('webpack');
 
 module.exports = {
     entry: [
         './src/index.js'
     ],
     module: {
-        rules: [
+        loaders: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
-                use: ['babel-loader']
+                loaders: ['babel-loader'],
+                exclude: /node_modules/
+            },
+            {
+                test: /\.css/,
+                loader: 'style-loader!css-loader'
             }
         ]
     },
@@ -17,11 +21,15 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     output: {
-        path: path.resolve(__dirname, '/dist'),
-        publicPath: '/',
-        filename: 'bundle.js'
+        path: '/public',
+        filename: 'js/bundle.js'
     },
     devServer: {
-        contentBase: './dist'
-    }
+        inline: true,
+        contentBase: './public',
+        port: 3000
+    },
+    plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin()
+    ]
 };
