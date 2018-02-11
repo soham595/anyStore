@@ -7,7 +7,7 @@ class SignUpPage extends React.Component {
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col-md-3"></div>
+                    <div className="col-md-3">sdfsdf</div>
                     <div className="col-md-6">
                         <form className="form-space" method="post">
                             <div className="row">
