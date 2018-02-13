@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.1",
     "babel-core": "^6.26.0",
     "babel-install": "^2.1.0",
     "babel-loader": "^7.1.2",
@@ -11,10 +12,13 @@
     "npm-install-webpack-plugin": "^4.0.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-route": "^1.0.3",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-hot-middleware": "^2.21.0"
