@@ -2,19 +2,18 @@ import React from 'react';
 import './signUp.css';
 import {Link} from 'react-router-dom';
 
-class SignUpPage extends React.Component {
+class SignInPage extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            username: '',
             email: '',
             password: '',
-            passwordConfirmation: ''
         }
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+
     }
 
     onChange(e) {
@@ -35,15 +34,10 @@ class SignUpPage extends React.Component {
                     <div className="col-md-8">
                         <div className="card signin-card">
                             <div className="card-header">
-                                <h3>Sign Up</h3>
+                                <h3>Login</h3>
                             </div>
                             <div className="card-body">
                                 <form className="signin-form" onSubmit={this.onSubmit}>
-                                    <div className="form-group">
-                                        <input value={this.state.username} onChange={this.onChange} type="text"
-                                               className="form-control" placeholder="Username" name="username"
-                                               required/>
-                                    </div>
                                     <div className="form-group">
                                         <input value={this.state.email} onChange={this.onChange} type="text"
                                                className="form-control" placeholder="Email" name="email"
@@ -54,14 +48,7 @@ class SignUpPage extends React.Component {
                                                className="form-control" placeholder="Password" name="password"
                                                required/>
                                     </div>
-                                    <div className="form-group">
-                                        <input value={this.state.passwordConfirmation} onChange={this.onChange}
-                                               type="password"
-                                               className="form-control" placeholder="Confirm Password"
-                                               name="passwordConfirmation"
-                                               required/>
-                                    </div>
-                                    <button type="submit" className="btn btn-lg btn-custom">Register</button>
+                                    <button type="submit" className="btn btn-lg btn-custom">Sign In</button>
                                     <div className="form-check">
                                         <label className="form-check-label">
                                             <input type="checkbox" className="form-check-input"/>
@@ -72,7 +59,7 @@ class SignUpPage extends React.Component {
                             </div>
                         </div>
                         <div className="create-account">
-                            <Link to="/signin">Existing User? Login</Link>
+                            <Link to="/signup">New to anyStore? Sign Up</Link>
                         </div>
                     </div>
                     <div className="col">
@@ -83,4 +70,4 @@ class SignUpPage extends React.Component {
     }
 }
 
-export default SignUpPage;
+export default SignInPage;

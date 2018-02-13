@@ -1,3 +1,8 @@
+body {
+    background-color: #c2c2c2;
+}
+
+
 .bg-custom {
     background-color: #2a2a2a;
     height: 3em;
@@ -60,4 +65,14 @@ a:hover {
 .container {
     vertical-align: center;
     text-align: center;
+}
+
+li a {
+    text-decoration: none;
+    color: white;
+}
+
+.link-font a {
+    text-decoration: none;
+    color: white;
 }

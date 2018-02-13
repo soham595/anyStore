@@ -11,9 +11,9 @@ class NavigationBar extends Component {
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
-
-                        <a className="navbar-brand" href="#">any Store</a>
-
+                        <div className="navbar-brand link-font">
+                            <Link to="/">anyStore</Link>
+                        </div>
                         <div className="collapse navbar-collapse" id="nav-content">
                             <ul className="navbar-nav mr-auto">
                                 <li className="dropdown nav-link">
@@ -41,14 +41,8 @@ class NavigationBar extends Component {
                                     <button className="btn btn-success my-2 my-sm-0">Search</button>
                                 </div>
                             </form>
-                            <li className="dropdown nav-link">
-                                <a href="" className="dropbtn nav-item dropdown-toggle" data-toggle="dropdown">
-                                    Sign In
-                                </a>
-                                <ul id="" className="dropdown-menu">
-                                    <li><Link to="/">Login</Link></li>
-                                    <li><Link to="/signup">Register</Link></li>
-                                </ul>
+                            <li className="nav-link link-font">
+                                <Link to="/signin">Sign In</Link>
                             </li>
                         </div>
                     </div>
