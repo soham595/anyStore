@@ -24,7 +24,7 @@ class SignUpPage extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        axios.post('/src/users', {user: this.state});
+        axios.post('/users', {users: this.state});
     }
 
     render() {
