@@ -12,7 +12,7 @@ class SignUpPage extends React.Component {
             email: '',
             password: '',
             passwordConfirmation: ''
-        }
+        };
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -24,7 +24,7 @@ class SignUpPage extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        axios.post('/api/users', {user: this.state});
+        axios.post('/users', {users: this.state});
     }
 
     render() {
