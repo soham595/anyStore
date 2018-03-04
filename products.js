@@ -76,8 +76,8 @@ router.patch('/:productId', (req, res) => {
             console.log(err);
             res.status(500).json({
                 error: err
-            })
-        })
+            });
+        });
 });
 
 router.delete('/:productId', (req, res) => {
@@ -91,8 +91,8 @@ router.delete('/:productId', (req, res) => {
             console.log(err);
             res.status(500).json({
                 error: err
-            })
-        })
+            });
+        });
 });
 
 
