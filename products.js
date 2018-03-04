@@ -4,13 +4,15 @@ const mongoose = require('mongoose');
 const Product = require('./models/product');
 
 
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
     const product = new Product({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         price: req.body.price
     });
-    product.save().then(result => {
+    product
+        .save()
+        .then(result => {
         console.log(result);
         res.status(201).json({
             message: 'Product created.',
@@ -24,15 +26,14 @@ router.post('/', (req, res) => {
                 }
             }
         });
-    })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({error: err});
-        });
+        }).catch(err => {
+        console.log(err);
+        res.status(500).json({error: err});
+    });
 
 });
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
     Product.find()
         .select('name price _id')
         .exec()
@@ -59,7 +60,7 @@ router.get('/', (req, res) => {
         })
 });
 
-router.get('/:productId', (req, res) => {
+router.get('/:productId', (req, res, next) => {
     const id = req.params.productId;
     Product.findById(id)
         .select('name price _id')
@@ -85,7 +86,7 @@ router.get('/:productId', (req, res) => {
         });
 });
 
-router.patch('/:productId', (req, res) => {
+router.patch('/:productId', (req, res, next) => {
     const id = req.params.productId;
     const updateOps = {};
     for (const ops of req.body) {
@@ -110,7 +111,7 @@ router.patch('/:productId', (req, res) => {
         });
 });
 
-router.delete('/:productId', (req, res) => {
+router.delete('/:productId', (req, res, next) => {
     const id = req.params.productId;
     Product.remove({_id: id})
         .exec()
