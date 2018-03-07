@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const users = require('./users');
 const products = require('./products');
 const morgan = require('morgan');
+const orders = require('./orders');
 
 mongoose.connect('mongodb://localhost:27017/anystore');
 
@@ -16,6 +17,7 @@ app.use(morgan('dev'));
 
 app.use('/users', users);
 app.use('/products', products);
+app.use('/orders', orders);
 
 app.use((req, res, next) => {
     const error = new Error('Not Found');
