@@ -42,6 +42,7 @@ router.post('/', (req, res, next) => {
 router.get('/', (req, res, next) => {
     Order.find()
         .select('product quantity _id')
+        .populate('product', 'name')
         .exec()
         .then(docs => {
             const response = {
@@ -70,6 +71,7 @@ router.get('/:orderId', (req, res, next) => {
     const id = req.params.orderId;
     Order.findById(id)
         .select('name price _id')
+        .populate('product', 'name price')
         .exec()
         .then(doc => {
             console.log("From database", doc);
