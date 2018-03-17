@@ -9,7 +9,7 @@ class SignInPage extends React.Component {
         this.state = {
             email: '',
             password: '',
-        }
+        };
 
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
