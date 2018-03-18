@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads'));
 
 app.use('/users', users);
 app.use('/products', products);
@@ -24,7 +25,7 @@ app.use((req, res, next) => {
     error.status = 404;
     next(error);
 
-})
+});
 
 app.use((error, req, res, next) => {
     res.status(error.status || 500);
