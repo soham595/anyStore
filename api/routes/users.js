@@ -3,7 +3,9 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const Profile = require('../models/profile');
 const jwt = require('jsonwebtoken');
+const checkAuth = require('../middleware/check-auth');
 
 router.post('/signup', (req, res, next) => {
     User.find({email: req.body.email})
@@ -29,8 +31,13 @@ router.post('/signup', (req, res, next) => {
                             .then(result => {
                                 console.log(result);
                                 res.status(201).json({
-                                    message: 'User Created'
+                                    message: 'User Created',
+                                    createdUser: {
+                                        email: result.email,
+                                        _id: result._id,
+                                    }
                                 });
+
                             })
                             .catch(err => {
                                 console.log(err);
@@ -41,7 +48,7 @@ router.post('/signup', (req, res, next) => {
                     }
                 });
             }
-        })
+        });
 });
 
 router.post('/login', (req, res, next) => {
@@ -72,7 +79,11 @@ router.post('/login', (req, res, next) => {
                     );
                     return res.status(200).json({
                         message: 'Auth successful',
-                        token: token
+                        token: token,
+                        createdUser: {
+                            email: user[0].email,
+                            _id: user[0]._id
+                        },
                     });
                 }
                 res.status(401).json({
@@ -103,6 +114,25 @@ router.delete('/:userId', (req, res, next) => {
                 error: err
             });
         });
+});
+
+router.post('/profile/:profileId', checkAuth, (req, res, next) => {
+    const id = req.params.profileId;
+    const updateOps = {};
+    for (const ops of req.body) {
+        updateOps[ops.propName] = ops.value;
+    }
+    var options = {new: true};
+    Profile.findOneAndUpdate({_id: id}, updateOps, options)
+        .exec()
+        .then( result => {
+            console.log(result);
+            res.status(201).json(result);
+        })
+        .catch( err => {
+            console.log(err);
+            res.status(500).json({error: err});
+        })
 });
 
 module.exports = router;
