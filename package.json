@@ -2,6 +2,7 @@
   "name": "any-prac-py",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://soham595.github.io/anyStore/",
   "dependencies": {
     "axios": "^0.17.1",
     "babel-core": "^6.26.0",
@@ -38,8 +39,10 @@
     "dev": "webpack",
     "server": "nodemon server.js",
     "start": "webpack-dev-server --inline --hot",
-    "build": "react-scripts build",
+    "build": "react-scripts build webpack-dev-server --inline --hot",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build" ,
+    "deploy": "gh-pages -d build"
   }
 }
